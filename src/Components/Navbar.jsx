@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/Navbar.css";
+import "../Styles/Navbar.css";
 import Alert from "./Alert";
 
 function Navbar() {

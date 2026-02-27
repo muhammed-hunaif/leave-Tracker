@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "../styles/Alert.css";
+import "../Styles/Alert.css";
 
 function Alert({ message, type, onClose }) {
   useEffect(() => {

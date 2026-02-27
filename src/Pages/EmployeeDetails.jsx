@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
-import "../styles/EmployeeDetails.css";
+import "../Styles/EmployeeDetails.css";
 
 
 function EmployeeDetails() {
@@ -35,28 +35,28 @@ function EmployeeDetails() {
       {/* Main Content */}
       <div className="details-content">
         <div className="employee-grid">
-        {employees.map((emp) => (
-          <div className="employee-card" key={emp._id}>
-            <div className="card-header">
-              <span className="emp-id">#{emp.employeeId}</span>
-              <span className="emp-leave-badge">{emp.leave} Leaves</span>
-            </div>
+          {employees.map((emp) => (
+            <div className="employee-card" key={emp._id}>
+              <div className="card-header">
+                <span className="emp-id">#{emp.employeeId}</span>
+                <span className="emp-leave-badge">{emp.leave} Leaves</span>
+              </div>
 
-            <div className="card-body">
-              <h2 className="emp-name">{emp.name}</h2>
-              <p className="emp-email">{emp.email}</p>
-            </div>
+              <div className="card-body">
+                <h2 className="emp-name">{emp.name}</h2>
+                <p className="emp-email">{emp.email}</p>
+              </div>
 
-            <div className="card-footer">
-              <button
-                className="action-btn"
-                onClick={() => navigate(`/admin/employee/${emp._id}`)}
-              >
-                View
-              </button>
+              <div className="card-footer">
+                <button
+                  className="action-btn"
+                  onClick={() => navigate(`/admin/employee/${emp._id}`)}
+                >
+                  View
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "../styles/LeaveHistory.css";
+import "../Styles/LeaveHistory.css";
 
 function ApplyLeaveHistory() {
   const [history, setHistory] = useState([]);

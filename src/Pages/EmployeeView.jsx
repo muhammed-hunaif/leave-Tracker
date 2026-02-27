@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
-import "../styles/EmployeeView.css";
+import "../Styles/EmployeeView.css";
 
 function EmployeeView() {
   const { id } = useParams();

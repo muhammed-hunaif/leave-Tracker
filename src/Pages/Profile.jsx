@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
-import "../styles/Profile.css";
+import "../Styles/Profile.css";
 
 function Profile() {
   const { user } = useContext(AuthContext);

@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import "../styles/LeaveDetails.css";
+import "../Styles/LeaveDetails.css";
 
 function LeaveDetails() {
   const { user } = useContext(AuthContext);

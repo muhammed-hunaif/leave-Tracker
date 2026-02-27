@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "../styles/EmployeeDashboard.css";
+import "../Styles/EmployeeDashboard.css";
 
 function EmployeeDashboard() {
   const [stats, setStats] = useState(null);

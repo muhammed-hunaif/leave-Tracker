@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "../styles/Employee.css";
+import "../Styles/Employee.css";
 
 function EmployeeWelcome() {
   const [leaves, setLeaves] = useState("");

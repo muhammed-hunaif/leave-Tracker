@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import "../styles/LeaveView.css";
+import "../Styles/LeaveView.css";
 
 function LeaveView() {
   const { id } = useParams();
@@ -70,7 +70,7 @@ function LeaveView() {
       setSuccessMessage(`Leave ${status} successfully ✅`);
       setActionReason("");
       setError("");
-      
+
       setTimeout(() => setSuccessMessage(""), 3000);
     } catch {
       setError("Action failed ❌");
@@ -99,7 +99,7 @@ function LeaveView() {
     <div className="leave-view">
       <button className="back-button" onClick={() => navigate(-1)}>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M19 12H5M12 19l-7-7 7-7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M19 12H5M12 19l-7-7 7-7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
         <span>Back</span>
       </button>
@@ -107,10 +107,10 @@ function LeaveView() {
       <div className="header-section">
         <div className="leave-icon">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <line x1="16" y1="2" x2="16" y2="6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <line x1="8" y1="2" x2="8" y2="6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <line x1="3" y1="10" x2="21" y2="10" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <line x1="16" y1="2" x2="16" y2="6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <line x1="8" y1="2" x2="8" y2="6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <line x1="3" y1="10" x2="21" y2="10" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
         <h1>Leave Request Details</h1>
@@ -165,8 +165,8 @@ function LeaveView() {
           <div className="card-header">
             <h2>Manager Action</h2>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M9 11l3 3L22 4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M9 11l3 3L22 4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
 
@@ -188,7 +188,7 @@ function LeaveView() {
                 onClick={() => handleAction("approved")}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M20 6L9 17l-5-5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M20 6L9 17l-5-5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
                 Approve Leave
               </button>
@@ -198,8 +198,8 @@ function LeaveView() {
                 onClick={() => handleAction("rejected")}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <line x1="18" y1="6" x2="6" y2="18" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <line x1="6" y1="6" x2="18" y2="18" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <line x1="18" y1="6" x2="6" y2="18" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <line x1="6" y1="6" x2="18" y2="18" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
                 Reject Leave
               </button>

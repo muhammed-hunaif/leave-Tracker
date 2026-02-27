@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
-import "../styles/AdminDashboard.css";
+import "../Styles/AdminDashboard.css";
 
 function AdminDashboard() {
   const { user } = useContext(AuthContext);

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Alert from "../Components/Alert";
-import "../styles/ApplyLeave.css";
+import "../Styles/ApplyLeave.css";
 
 function ApplyLeave() {
   const [leaveType, setLeaveType] = useState("");

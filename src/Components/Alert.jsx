@@ -9,7 +9,7 @@ function Alert({ message, type, onClose }) {
 
     return () => clearTimeout(timer);
   }, [onClose]);
-
+  // hello hunaif frpom ascasd
   return (
     <div className={`alert alert-${type}`}>
       <div className="alert-wrapper">

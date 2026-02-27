@@ -1,0 +1,116 @@
+.employee-container {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box; /* 300px width-kku ithu mukkiyam */
+}
+
+.employee-container h2 {
+  text-align: center;
+  color: #1e293b;
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+}
+
+/* Table Style */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+th {
+  background-color: #1e293b;
+  color: #ffffff;
+  padding: 15px;
+  text-align: left;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+td {
+  padding: 15px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #475569;
+}
+
+/* Status Colors */
+.status {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: capitalize;
+  display: inline-block;
+}
+
+.status.pending { background: #fef3c7; color: #92400e; }
+.status.approved { background: #dcfce7; color: #166534; }
+.status.rejected { background: #fee2e2; color: #009e35; }
+
+
+/* Mobile View Logic - Supporting down to 300px */
+@media (max-width: 768px) {
+  .employee-container {
+    padding: 10px 8px;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+    width: 100%;
+  }
+
+  thead { display: none; } 
+
+  tr {
+    margin-bottom: 20px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  td {
+    display: flex;
+    /* Content overlap aagaama irukka row layout-a flex-column-ah mathi irukken */
+    flex-direction: column; 
+    align-items: flex-start; /* Items left align aagum */
+    border: none;
+    border-bottom: 1px solid #f8fafc;
+    padding: 10px 5px;
+    text-align: left;
+    font-size: 14px;
+    gap: 6px; /* Label and Value-ku idaiyil chinna gap */
+  }
+
+  /* Reason column-ku mattum special wrapping */
+  td[data-label="Reason"] {
+    word-break: break-word; /* Periya sentence-a break panni keela kondu varum */
+    line-height: 1.4;
+  }
+
+  td:last-child { 
+    border-bottom: none; 
+    padding-bottom: 0;
+  }
+
+  /* Label Styling */
+  td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    font-size: 11px;
+    margin-bottom: 2px; /* Label keela content vara gap */
+  }
+
+  .status {
+    margin-top: 4px;
+    display: inline-block; /* Status badge mathiri theriya */
+  }
+}

@@ -1,0 +1,21 @@
+.back-btn {
+  background-color: #2b65b6;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  /* smaller size */
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  margin-bottom: 15px;
+  transition: 0.3s;
+
+  display: inline-block;
+  /* prevents full width */
+  width: auto;
+  /* button fits content only */
+}
+
+.back-btn:hover {
+  background-color: #1f4f94;
+}

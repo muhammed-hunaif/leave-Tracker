@@ -1,0 +1,159 @@
+/* ===== Alert Notification ===== */
+.alert {
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  z-index: 9999;
+  animation: slideInRight 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.alert-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  min-width: 320px;
+  max-width: 450px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  background: white;
+  border-left: 4px solid;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+/* Success Alert */
+.alert-success {
+  border-left-color: #10b981;
+}
+
+.alert-success .alert-icon-wrapper {
+  background: #d1fae5;
+}
+
+.alert-success .alert-icon {
+  color: #10b981;
+}
+
+/* Error Alert */
+.alert-error {
+  border-left-color: #ef4444;
+}
+
+.alert-error .alert-icon-wrapper {
+  background: #fee2e2;
+}
+
+.alert-error .alert-icon {
+  color: #ef4444;
+}
+
+/* Icon Styling */
+.alert-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.alert-icon {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2.5;
+}
+
+/* Content */
+.alert-content {
+  flex: 1;
+}
+
+.alert-message {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1f2937;
+  line-height: 1.5;
+}
+
+/* Close Button */
+.alert-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #9ca3af;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.alert-close:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.alert-close svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Animations */
+@keyframes slideInRight {
+  from {
+    transform: translateX(450px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(450px);
+    opacity: 0;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+  .alert {
+    top: 80px;
+    right: 10px;
+    left: auto;
+  }
+
+  .alert-wrapper {
+    min-width: unset;
+    max-width: 90vw;
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .alert-icon-wrapper {
+    width: 36px;
+    height: 36px;
+  }
+
+  .alert-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .alert-message {
+    font-size: 13px;
+  }
+}
+
+
+

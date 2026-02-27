@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+/* ===== Modern Home Styles ===== */
+.home-container {
+  min-height: 100vh;
+  width: 100%;
+  background: radial-gradient(circle at top right, #f8fafc 0%, #eff6ff 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Background Accents */
+.home-container::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 400px;
+  height: 400px;
+  background: rgba(37, 99, 235, 0.05);
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.home-container::after {
+  content: '';
+  position: absolute;
+  bottom: -10%;
+  left: -5%;
+  width: 300px;
+  height: 300px;
+  background: rgba(30, 41, 59, 0.05);
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+.home-card {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 60px 40px;
+  border-radius: 32px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  z-index: 10;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-card h1 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 12px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.home-subtitle {
+  color: #64748b;
+  font-size: 16px;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.home-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.home-buttons button {
+  width: 100%;
+  padding: 18px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Signup - Primary Gradient */
+.btn-signup {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: white;
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.3);
+}
+
+.btn-signup:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px -5px rgba(37, 99, 235, 0.4);
+  filter: brightness(1.05);
+}
+
+/* Admin Login - Slate Dark */
+.btn-admin {
+  background-color: #1e293b;
+  color: white;
+  box-shadow: 0 10px 20px -5px rgba(30, 41, 59, 0.2);
+}
+
+.btn-admin:hover {
+  background-color: #0f172a;
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px -5px rgba(30, 41, 59, 0.3);
+}
+
+/* Employee Login - Outline Glass */
+.btn-employee {
+  background-color: #ffffff;
+  color: #1e293b;
+  border: 2px solid #e2e8f0 !important;
+}
+
+.btn-employee:hover {
+  background-color: #f8fafc;
+  border-color: #2563eb !important;
+  color: #2563eb;
+  transform: translateY(-4px);
+}
+
+.home-buttons button:active {
+  transform: scale(0.98);
+}
+
+/* Footer info */
+.home-footer {
+  margin-top: 32px;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .home-card {
+    padding: 40px 24px;
+    border-radius: 24px;
+  }
+
+  .home-card h1 {
+    font-size: 26px;
+  }
+}
+
+/* ===== Background Animations ===== */
+.bg-blobs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  background: rgba(37, 99, 235, 0.06);
+  filter: blur(80px);
+  border-radius: 50%;
+  animation: float-blob 15s infinite alternate ease-in-out;
+}
+
+.blob-1 {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  right: -100px;
+  background: rgba(37, 99, 235, 0.1);
+}
+
+.blob-2 {
+  width: 300px;
+  height: 300px;
+  bottom: -50px;
+  left: -50px;
+  animation-delay: -5s;
+}
+
+.blob-3 {
+  width: 250px;
+  height: 250px;
+  top: 40%;
+  left: 10%;
+  background: rgba(30, 41, 59, 0.05);
+  animation-delay: -2s;
+  animation-duration: 12s;
+}
+
+@keyframes float-blob {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .home-card {
+    padding: 40px 24px;
+    border-radius: 24px;
+  }
+
+  .home-card h1 {
+    font-size: 26px;
+  }
+
+  .blob-1 {
+    width: 300px;
+    height: 300px;
+  }
+
+  .blob-2 {
+    width: 200px;
+    height: 200px;
+  }
+}

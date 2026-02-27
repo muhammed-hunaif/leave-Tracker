@@ -1,0 +1,127 @@
+/* ===== Main Container ===== */
+.employee-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* ===== Heading ===== */
+.employee-container h2 {
+  text-align: center;
+  font-size: 26px;
+  color: #2b65b6;
+  margin-bottom: 25px;
+}
+
+/* ===== Form Layout ===== */
+.leave-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Labels ===== */
+.leave-label,
+.leaves,
+.reason {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+/* ===== Dropdown ===== */
+.form-input {
+  width: 100%;
+  padding: 11px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  outline: none;
+  background-color: #fff;
+  transition: all 0.2s ease;
+  margin-bottom: 15px;
+}
+
+.form-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* ===== Input Fields ===== */
+.leave-form input,
+.leave-form textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  outline: none;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+
+.leave-form input:focus,
+.leave-form textarea:focus {
+  border-color: #2b65b6;
+  box-shadow: 0 0 0 3px rgba(43, 101, 182, 0.15);
+}
+
+/* Textarea */
+.leave-form textarea {
+  min-height: 90px;
+  resize: none;
+}
+
+/* ===== Submit Button ===== */
+.apply-btn {
+  margin-top: 10px;
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #2b65b6;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.apply-btn:hover {
+  background: #1f4f94;
+  transform: translateY(-1px);
+}
+
+/* ===== Messages ===== */
+.success-text {
+  margin-top: 15px;
+  color: #1e7e34;
+  font-weight: 600;
+  text-align: center;
+}
+
+.error-text {
+  margin-top: 15px;
+  color: #c82333;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .employee-container {
+    margin: 20px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .employee-container h2 {
+    font-size: 20px;
+  }
+}
+
+

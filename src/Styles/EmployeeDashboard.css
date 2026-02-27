@@ -1,0 +1,272 @@
+/* ===== Employee Dashboard Page ===== */
+.employee-dashboard {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%);
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+}
+
+/* ===== Header Section ===== */
+.dashboard-header {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.header-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  z-index: 0;
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+  padding: 60px 40px 40px;
+  text-align: center;
+  color: wheat;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 42px;
+  font-weight: 900;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.5px;
+}
+
+.page-subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  opacity: 0.95;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== Dashboard Content ===== */
+.dashboard-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+/* ===== Grid Layout ===== */
+.charts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* ===== Chart Card ===== */
+.chart-card {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chart-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== Chart Header ===== */
+.chart-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.chart-header h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #64748b;
+  margin: 0;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.chart-value {
+  display: block;
+  font-size: 48px;
+  font-weight: 900;
+  color: #1e293b;
+  margin: 0;
+  line-height: 1;
+}
+
+/* ===== Progress Bar ===== */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 16px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s ease;
+}
+
+.progress-fill.all {
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+}
+
+.progress-fill.pending {
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.progress-fill.approved {
+  background: linear-gradient(90deg, #10b981, #059669);
+}
+
+.progress-fill.rejected {
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+/* ===== Chart Footer ===== */
+.chart-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #e2e8f0;
+  font-size: 13px;
+}
+
+.percentage {
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.label {
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* ===== Chart Info ===== */
+.chart-info {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ===== Responsive (Tablet) ===== */
+@media (max-width: 768px) {
+  .dashboard-content {
+    padding: 0 16px 30px;
+  }
+
+  .page-title {
+    font-size: 32px;
+  }
+
+  .page-subtitle {
+    font-size: 14px;
+  }
+
+  .charts-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .chart-card {
+    padding: 24px;
+  }
+
+  .chart-value {
+    font-size: 40px;
+  }
+}
+
+/* ===== Responsive (Mobile) ===== */
+@media (max-width: 480px) {
+  .employee-dashboard {
+    padding: 0;
+  }
+
+  .header-content {
+    padding: 45px 24px 30px;
+  }
+
+  .page-title {
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+
+  .page-subtitle {
+    font-size: 13px;
+  }
+
+  .dashboard-content {
+    padding: 0 12px 30px;
+  }
+
+  .charts-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .chart-card {
+    padding: 20px;
+  }
+
+  .chart-value {
+    font-size: 32px;
+  }
+
+  .chart-header h3 {
+    font-size: 14px;
+  }
+}
+
+/* ===== Responsive (Small Mobile) ===== */
+@media (max-width: 360px) {
+  .header-content {
+    padding: 40px 16px 25px;
+  }
+
+  .page-title {
+    font-size: 22px;
+  }
+
+  .dashboard-content {
+    padding: 0 10px 20px;
+  }
+
+  .chart-card {
+    padding: 16px;
+  }
+
+  .chart-value {
+    font-size: 28px;
+  }
+
+  .chart-header h3 {
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,266 @@
+/* ===== Apply Leave Page Container ===== */
+.apply-leave-page {
+  padding: 20px 15px;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ===== Apply Leave Container (Card) ===== */
+.apply-leave-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+  border: 1px solid #eef2f6;
+}
+
+/* ===== Header Section ===== */
+.leave-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.leave-header h1 {
+  font-size: 28px;
+  font-weight: 900;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.leave-header p {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ===== Form Layout ===== */
+.leave-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ===== Form Group ===== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ===== Form Labels ===== */
+.form-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #64748b;
+  margin: 0;
+}
+
+/* ===== Form Input & Select ===== */
+.form-input {
+  padding: 12px 14px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1.5px solid #eef2f6;
+  outline: none;
+  background-color: #f8fafc;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
+  color: #1e293b;
+}
+
+.form-input:hover {
+  border-color: #cbd5e1;
+}
+
+.form-input:focus {
+  border-color: #3b82f6;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-input:disabled {
+  background-color: #f1f5f9;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* ===== Textarea ===== */
+.form-textarea {
+  padding: 12px 14px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1.5px solid #eef2f6;
+  outline: none;
+  background-color: #f8fafc;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
+  color: #1e293b;
+  min-height: 120px;
+  resize: none;
+}
+
+.form-textarea:hover {
+  border-color: #cbd5e1;
+}
+
+.form-textarea:focus {
+  border-color: #3b82f6;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* ===== Button Group ===== */
+.button-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  flex: 1;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+/* Submit Button */
+.btn-submit {
+  background: linear-gradient(135deg, #0c131e, #2563eb);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+/* Cancel Button */
+.btn-cancel {
+  background: #f1f5f9;
+  color: #64748b;
+  border: 1.5px solid #e2e8f0;
+}
+
+.btn-cancel:hover {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.btn-cancel:active {
+  transform: scale(0.98);
+}
+
+/* ===== Responsive (Tablet) ===== */
+@media (max-width: 768px) {
+  .apply-leave-container {
+    margin: 20px;
+    padding: 30px 20px;
+  }
+
+  .leave-header h1 {
+    font-size: 24px;
+  }
+
+  .leave-header p {
+    font-size: 13px;
+  }
+
+  .button-group {
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 11px 16px;
+    font-size: 13px;
+  }
+}
+
+/* ===== Responsive (Mobile) ===== */
+@media (max-width: 480px) {
+  .apply-leave-page {
+    padding: 15px 10px;
+  }
+
+  .apply-leave-container {
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .leave-header h1 {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+  .leave-header p {
+    font-size: 12px;
+  }
+
+  .form-group {
+    gap: 6px;
+  }
+
+  .form-label {
+    font-size: 13px;
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .form-textarea {
+    min-height: 100px;
+  }
+
+  .button-group {
+    gap: 8px;
+    margin-top: 8px;
+    flex-direction: column;
+  }
+
+  .btn {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+}
+
+/* ===== Responsive (Small Mobile) ===== */
+@media (max-width: 320px) {
+  .apply-leave-container {
+    padding: 16px;
+  }
+
+  .leave-header h1 {
+    font-size: 18px;
+  }
+
+  .form-label {
+    font-size: 12px;
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .btn {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,181 @@
+/* ===== Base Navbar ===== */
+.admin-navbar {
+  width: 100%;
+  height: 70px;
+  background-color: #1e293b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: -0.5px;
+  z-index: 2001;
+  display: block;
+}
+
+.nav-back-btn {
+  display: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-2px);
+}
+
+/* ===== Desktop Links ===== */
+.nav-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-links span {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: wheat;
+  transition: 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.nav-links span:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.logout {
+  color: #f87171 !important;
+}
+
+/* ===== Professional Menu Icon ===== */
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 2001;
+  padding: 8px;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.menu-icon:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.bar {
+  width: 26px;
+  height: 2px;
+  background-color: wheat;
+  border-radius: 10px;
+  transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+/* Staggered widths for better look */
+.bar:nth-child(2) {
+  width: 18px;
+  margin-left: auto;
+  /* Aligns shorter middle bar to the right */
+}
+
+.bar.open:nth-child(2) {
+  width: 26px;
+  /* Reset on open */
+}
+
+/* Hamburger Animation */
+.bar.open:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.bar.open:nth-child(2) {
+  opacity: 0;
+  transform: translateX(10px);
+}
+
+.bar.open:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ===== Mobile Responsive (Starts at 768px and down to 300px) ===== */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: flex;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .nav-back-btn {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    /* Initially hidden */
+    width: 100%;
+    height: 100vh;
+    background-color: #0f172a;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2000;
+  }
+
+  .nav-links.active {
+    right: 0;
+    /* Slide in effect */
+  }
+
+  .nav-links span {
+    font-size: 20px;
+    /* Big touch targets for mobile */
+    width: 80%;
+    text-align: center;
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* ===== Special Fix for 300px Screens ===== */
+@media (max-width: 320px) {
+  .logo {
+    font-size: 15px;
+    /* Narrow screens-la logo size adjust aagum */
+  }
+
+  .admin-navbar {
+    padding: 0 15px;
+  }
+
+  .nav-links span {
+    font-size: 18px;
+    gap: 20px;
+  }
+}

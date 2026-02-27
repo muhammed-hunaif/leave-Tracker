@@ -1,0 +1,271 @@
+/* ===== Employee Details Page ===== */
+.employee-details-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%);
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+}
+
+/* ===== Header Section ===== */
+.details-header {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.header-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  z-index: 0;
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+  padding: 60px 40px 40px;
+  text-align: center;
+  color:wheat;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 42px;
+  font-weight: 900;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.5px;
+}
+
+.page-subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  opacity: 0.95;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== Details Content ===== */
+.details-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+/* Grid Layout */
+.employee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* Card Design */
+.employee-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.employee-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 8px;
+}
+
+.emp-id {
+  background: #f1f5f9;
+  color: #64748b;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.emp-leave-badge {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  color: #c2185b;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.card-body {
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.emp-name {
+  font-size: 18px;
+  color: #1e293b;
+  margin: 0 0 6px 0;
+  word-break: break-word;
+  font-weight: 700;
+}
+
+.emp-email {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+  word-break: break-all;
+  font-weight: 500;
+}
+
+.card-footer {
+  width: 100%;
+}
+
+.action-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #0c131e, #2563eb);
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+.action-btn:active {
+  transform: translateY(0);
+}
+
+/* ===== Responsive (Tablet) ===== */
+@media (max-width: 768px) {
+  .details-content {
+    padding: 0 16px 30px;
+  }
+
+  .page-title {
+    font-size: 32px;
+  }
+
+  .page-subtitle {
+    font-size: 14px;
+  }
+
+  .employee-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .employee-card {
+    padding: 20px;
+  }
+}
+
+/* ===== Responsive (Mobile) ===== */
+@media (max-width: 480px) {
+  .employee-details-page {
+    padding: 0;
+  }
+
+  .header-content {
+    padding: 45px 24px 30px;
+  }
+
+  .page-title {
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+
+  .page-subtitle {
+    font-size: 13px;
+  }
+
+  .details-content {
+    padding: 0 12px 30px;
+  }
+
+  .employee-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .employee-card {
+    padding: 18px;
+  }
+
+  .emp-name {
+    font-size: 16px;
+  }
+
+  .emp-email {
+    font-size: 12px;
+  }
+
+  .action-btn {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+}
+
+/* ===== Responsive (Small Mobile) ===== */
+@media (max-width: 360px) {
+  .header-content {
+    padding: 40px 16px 25px;
+  }
+
+  .page-title {
+    font-size: 22px;
+  }
+
+  .details-content {
+    padding: 0 10px 20px;
+  }
+
+  .employee-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .employee-card {
+    padding: 16px;
+  }
+
+  .emp-name {
+    font-size: 14px;
+  }
+
+  .emp-email {
+    font-size: 11px;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .action-btn {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+}

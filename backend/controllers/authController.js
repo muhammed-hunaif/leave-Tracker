@@ -64,7 +64,8 @@ const login = async (req, res) => {
     res.json({ token, role });
 
   } catch (err) {
-    res.status(500).json({ message: "Login error" });
+    console.error("DEBUG LOGIN ERROR:", err);
+    res.status(500).json({ message: "Login error", error: err.message });
   }
 };
 

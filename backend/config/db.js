@@ -3,11 +3,12 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/leave_management");
-        console.log("Database connected");
+        await mongoose.connect(process.env.MONGO_URI || "mongodb://127.00.1:27017/leave_management", {
+            serverSelectionTimeoutMS: 5000, // Timeout after 5s
+        });
+        console.log("Database connected smoothly");
     } catch (error) {
-        console.log(error);
-        // process.exit(1);
+        console.error("Critical: Database connection failed!", error);
     }
 };
 

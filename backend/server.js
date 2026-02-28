@@ -23,6 +23,11 @@ app.use("/api/", authRoutes);
 app.use("/api/employee", employeeRoutes);
 app.use("/api/leaves", leaveRoutes);
 
+// Root route to verify backend is live
+app.get("/", (req, res) => {
+  res.send("Leave Tracker Backend is Running!");
+});
+
 
 // Admin Dashboard Stats
 app.get("/api/admin/dashboard-stats", async (req, res) => {

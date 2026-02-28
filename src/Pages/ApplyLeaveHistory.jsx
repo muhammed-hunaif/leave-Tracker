@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import API_BASE_URL from "../api/api";
 import "../Styles/LeaveHistory.css";
 
 function ApplyLeaveHistory() {
@@ -12,7 +13,7 @@ function ApplyLeaveHistory() {
     const fetchLeaves = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3001/api/leaves/my",
+          `${API_BASE_URL}/leaves/my`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

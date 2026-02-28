@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import API_BASE_URL from "../api/api";
 import "../Styles/Employee.css";
 
 function EmployeeWelcome() {
@@ -19,7 +20,7 @@ function EmployeeWelcome() {
     const fetchMyLeaves = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3001/api/leaves/my",
+          `${API_BASE_URL}/leaves/my`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -33,7 +34,7 @@ function EmployeeWelcome() {
     const fetchLeaveTypes = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3001/api/leaves/leave-types/active",
+          `${API_BASE_URL}/leaves/leave-types/active`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -62,7 +63,7 @@ function EmployeeWelcome() {
 
     try {
       const res = await axios.post(
-        "http://localhost:3001/api/leaves/apply",
+        `${API_BASE_URL}/leaves/apply`,
         { leaves, reason, leaveTypeId }, // 🔥 Include leave type
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -76,7 +77,7 @@ function EmployeeWelcome() {
 
       // 🔁 Refresh history
       const historyRes = await axios.get(
-        "http://localhost:3001/api/leaves/my",
+        `${API_BASE_URL}/leaves/my`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

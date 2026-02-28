@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
+import API_BASE_URL from "../api/api";
 import "../Styles/Login.css";
 import { AuthContext } from "../context/AuthContext";
 
@@ -37,7 +38,7 @@ function Login() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3001/api/login",
+        `${API_BASE_URL}/login`,
         { email, password, role: selectedRole }
       );
 

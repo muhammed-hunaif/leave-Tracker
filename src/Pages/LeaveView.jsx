@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
+import API_BASE_URL from "../api/api";
 import { useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import "../Styles/LeaveView.css";
@@ -21,7 +22,7 @@ function LeaveView() {
     const fetchLeave = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3001/api/leaves",
+          `${API_BASE_URL}/leaves`,
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
@@ -52,7 +53,7 @@ function LeaveView() {
 
     try {
       await axios.put(
-        `http://localhost:3001/api/leaves/${id}/action`,
+        `${API_BASE_URL}/leaves/${id}/action`,
         { status, actionReason },
         {
           headers: {

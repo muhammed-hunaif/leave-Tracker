@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
+import API_BASE_URL from "../api/api";
 import "../Styles/EmployeeDetails.css";
 
 
@@ -14,7 +15,7 @@ function EmployeeDetails() {
     if (!user?.token) return;
 
     axios
-      .get("http://localhost:3001/api/employee/", {
+      .get(`${API_BASE_URL}/employee/`, {
         headers: { Authorization: `Bearer ${user.token}` },
       })
       .then((res) => setEmployees(res.data))

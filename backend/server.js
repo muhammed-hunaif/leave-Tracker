@@ -8,7 +8,7 @@ const User = require("./models/User");
 const Employee = require("./models/Employee");
 const Leave = require("./models/Leave");
 const authRoutes = require("./routes/authRoutes");
-const employeeRoutes = require("./routes/employeeRoutes");
+const employeeRoutes = require("./routes/employeeroutes");
 const leaveRoutes = require("./routes/leaveRoutes");
 
 
@@ -50,6 +50,8 @@ app.get("/api/admin/dashboard-stats", async (req, res) => {
 
 
 
-app.listen(3001, () => {
-  console.log("Server running on port 3001");
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

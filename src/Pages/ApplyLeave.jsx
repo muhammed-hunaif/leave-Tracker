@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import API_BASE_URL from "../api/api";
 import Alert from "../Components/Alert";
 import "../Styles/ApplyLeave.css";
 
@@ -21,7 +22,7 @@ function ApplyLeave() {
     const fetchLeaveTypes = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/api/leaves/leave-types",
+          `${API_BASE_URL}/leaves/leave-types`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -46,7 +47,7 @@ function ApplyLeave() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3001/api/leaves/apply",
+        `${API_BASE_URL}/leaves/apply`,
         {
           leaveType,
           numOfLeaves: Number(numOfLeaves),

@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
+import API_BASE_URL from "../api/api";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import "../Styles/LeaveDetails.css";
@@ -40,7 +41,7 @@ function LeaveDetails() {
         setLoading(true);
         setError("");
 
-        const res = await axios.get("http://localhost:3001/api/leaves", {
+        const res = await axios.get(`${API_BASE_URL}/leaves`, {
           headers: {
             Authorization: `Bearer ${user.token}`,
           },

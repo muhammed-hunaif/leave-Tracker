@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
+import API_BASE_URL from "../api/api";
 import "../Styles/EmployeeView.css";
 
 function EmployeeView() {
@@ -28,7 +29,7 @@ function EmployeeView() {
   // 🔹 Fetch Employee
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/employee/${id}`, {
+      .get(`${API_BASE_URL}/employee/${id}`, {
         headers: { Authorization: `Bearer ${user.token}` },
       })
       .then((res) => {
@@ -41,14 +42,14 @@ function EmployeeView() {
   // 🔹 Fetch Leave Types + Employee Balances
   const fetchLeaveTypes = async () => {
     try {
-      const typesRes = await axios.get("http://localhost:3001/api/leaves/leave-types/active",
+      const typesRes = await axios.get(`${API_BASE_URL}/leaves/leave-types/active`,
         {
           headers: { Authorization: `Bearer ${user.token}` }
         }
       );
 
       const balanceRes = await axios.get(
-        `http://localhost:3001/api/leaves/employee-leave-settings/${id}`,
+        `${API_BASE_URL}/leaves/employee-leave-settings/${id}`,
         { headers: { Authorization: `Bearer ${user.token}` } }
       );
 
@@ -76,7 +77,7 @@ function EmployeeView() {
   const handleUpdateDetails = async () => {
     try {
       const res = await axios.put(
-        `http://localhost:3001/api/employee/${id}`,
+        `${API_BASE_URL}/employee/${id}`,
         { name: employee.name, email: employee.email },
         { headers: { Authorization: `Bearer ${user.token}` } }
       );
@@ -107,7 +108,7 @@ function EmployeeView() {
 
     try {
       const res = await axios.put(
-        `http://localhost:3001/api/employee/${id}/password`,
+        `${API_BASE_URL}/employee/${id}/password`,
         { adminPassword, newPassword },
         { headers: { Authorization: `Bearer ${user.token}` } }
       );
@@ -146,7 +147,7 @@ function EmployeeView() {
       for (const leave of leaveTypes) {
         if (leave.newDays !== undefined && leave.newDays !== "") {
           await axios.put(
-            "http://localhost:3001/api/leaves/employee-leave-settings/update",
+            `${API_BASE_URL}/leaves/employee-leave-settings/update`,
             {
               employeeId: id,
               leaveTypeId: leave._id,

@@ -9,7 +9,7 @@ const {
   getEmployeeById,
   updateEmployeeDetails,
   changeEmployeePassword,
-} = require("../controllers/employeecontroller");
+} = require("../controllers/employeeController");
 
 // CREATE EMPLOYEE:
 router.post("/", authenticateToken, createEmployee);

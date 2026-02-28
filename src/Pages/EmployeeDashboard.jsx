@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import API_BASE_URL from "../api/api";
 import "../Styles/EmployeeDashboard.css";
 
 function EmployeeDashboard() {
@@ -12,7 +13,7 @@ function EmployeeDashboard() {
       return;
     }
 
-    axios.get("http://localhost:3001/api/employee/dashboard-stats", {
+    axios.get(`${API_BASE_URL}/employee/dashboard-stats`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => {

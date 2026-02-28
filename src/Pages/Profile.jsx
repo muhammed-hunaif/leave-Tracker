@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
+import API_BASE_URL from "../api/api";
 import "../Styles/Profile.css";
 
 function Profile() {
@@ -22,7 +23,7 @@ function Profile() {
       const token = user?.token;
 
       const res = await axios.post(
-        "http://localhost:3001/api/employee",
+        `${API_BASE_URL}/employee`,
         { employeeId, name, email, password, leave },
         { headers: { Authorization: `Bearer ${token}` } }
       );

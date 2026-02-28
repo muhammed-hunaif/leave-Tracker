@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
+import API_BASE_URL from "../api/api";
 import { AuthContext } from "../context/AuthContext";
 import "../Styles/AdminDashboard.css";
 
@@ -10,7 +11,7 @@ function AdminDashboard() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/api/admin/dashboard-stats", {
+      .get(`${API_BASE_URL}/admin/dashboard-stats`, {
         headers: { Authorization: `Bearer ${user.token}` }
       })
       .then((res) => {

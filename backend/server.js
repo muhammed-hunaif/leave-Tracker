@@ -16,7 +16,11 @@ const leaveRoutes = require("./routes/leaveRoutes");
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-connectDB();
+connectDB().then(() => {
+  console.log("Database initialized on startup");
+}).catch(err => {
+  console.error("FAILED to initialize database:", err);
+});
 
 
 app.use("/api/", authRoutes);

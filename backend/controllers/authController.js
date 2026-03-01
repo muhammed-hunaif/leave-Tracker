@@ -50,18 +50,27 @@ const login = async (req, res) => {
       return res.status(400).json({ message: "Invalid role" });
     }
 
-    if (!account) return res.status(404).json({ message: "User not found" });
-
+    console.log("Account found, verifying password...");
     const isMatch = await bcrypt.compare(password, account.password);
-    if (!isMatch) return res.status(400).json({ message: "Invalid password" });
+    if (!isMatch) {
+      console.log("Password mismatch for user:", email);
+      return res.status(400).json({ message: "Invalid password" });
+    }
 
+    const SECRET_KEY = process.env.SECRET_KEY;
+    if (!SECRET_KEY) {
+      console.error("CRITICAL ERROR: SECRET_KEY is not defined in environment variables!");
+      return res.status(500).json({ message: "Server configuration error: SECRET_KEY missing" });
+    }
+
+    console.log("Signing token...");
     const token = jwt.sign(
       { id: account._id, email: account.email, role },
-      process.env.SECRET_KEY,
+      SECRET_KEY,
       { expiresIn: "1h" }
     );
 
-
+    console.log("Login successful for:", email);
     res.json({ token, role });
 
   } catch (err) {

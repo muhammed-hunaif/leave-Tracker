@@ -49,12 +49,16 @@ const login = async (req, res) => {
     } else {
       return res.status(400).json({ message: "Invalid role" });
     }
+    if (!account) {
+      console.log("Account not found for email:", email);
+      return res.status(404).json({ message: "User not found" });
+    }
 
     console.log("Account found, verifying password...");
     const isMatch = await bcrypt.compare(password, account.password);
     if (!isMatch) {
       console.log("Password mismatch for user:", email);
-      return res.status(400).json({ message: "Invalid password" });
+      return res.status(401).json({ message: "Invalid password" });
     }
 
     const SECRET_KEY = process.env.SECRET_KEY;

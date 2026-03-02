@@ -12,6 +12,7 @@ function EmployeeWelcome() {
   const [errorMessage, setErrorMessage] = useState("");
   const [success, setSuccess] = useState("");
   const [showHistory, setShowHistory] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const token = localStorage.getItem("token");
 
@@ -89,92 +90,122 @@ function EmployeeWelcome() {
   };
 
   return (
-    <div className="employee-container" style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Welcome Employee 👋</h1>
+    <div className="employee-container">
+      <h1 className="welcome-title">Welcome Employee 👋</h1>
 
       {/* 🔹 Apply Leave */}
-      <h2>Apply Leave</h2>
-      <form className="leave-form" onSubmit={handleSubmit}>
-        {/* 🔥 NEW: Leave Type Dropdown */}
-        <select
-          value={leaveTypeId}
-          onChange={(e) => setLeaveTypeId(e.target.value)}
-          required
-        >
-          <option value="">Select Leave Type</option>
-          {leaveTypes.map((type) => (
-            <option key={type._id} value={type._id}>
-              {type.name}
-            </option>
-          ))}
-        </select>
-        <br /><br />
+      <div className="apply-leave-section">
+        <h2 className="section-title">Apply Leave</h2>
+        <form className="leave-form" onSubmit={handleSubmit}>
+          {/* Leave Type Selection - Professional Dropdown */}
+          <div className="form-group">
+            <div
+              className={`custom-leave-dropdown ${isDropdownOpen ? "is-open" : ""}`}
+              onMouseEnter={() => setIsDropdownOpen(true)}
+              onMouseLeave={() => setIsDropdownOpen(false)}
+            >
+              <div className="dropdown-selected">
+                {leaveTypeId
+                  ? leaveTypes.find((t) => t._id === leaveTypeId)?.name
+                  : "Select Leave Type"}
+                <span className="dropdown-caret"></span>
+              </div>
 
-        <input
-          type="number"
-          placeholder="No of Leaves"
-          value={leaves}
-          onChange={(e) => setLeaves(e.target.value)}
-          required
-        />
-        <br /><br />
+              <div className="dropdown-menu">
+                {leaveTypes.length === 0 ? (
+                  <div className="dropdown-item disabled">No types available</div>
+                ) : (
+                  leaveTypes.map((type) => (
+                    <div
+                      key={type._id}
+                      className={`dropdown-item ${leaveTypeId === type._id ? "selected" : ""}`}
+                      onClick={() => {
+                        setLeaveTypeId(type._id);
+                        setIsDropdownOpen(false);
+                      }}
+                    >
+                      {type.name}
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
+          </div>
 
-        <textarea
-          placeholder="Reason"
-          value={reason}
-          onChange={(e) => setReason(e.target.value)}
-          required
-        />
-        <br /><br />
+          <div className="form-group">
+            <input
+              type="number"
+              placeholder="No of Leaves"
+              value={leaves}
+              onChange={(e) => setLeaves(e.target.value)}
+              required
+              className="form-input"
+            />
+          </div>
 
-        <button type="submit">Submit</button>
+          <div className="form-group">
+            <textarea
+              placeholder="Reason"
+              value={reason}
+              onChange={(e) => setReason(e.target.value)}
+              required
+              className="form-textarea"
+            />
+          </div>
 
-        {/* 🔥 TOGGLE BUTTON */}
-        <button
-          type="button"
-          onClick={() => setShowHistory(prev => !prev)}
-          style={{ marginLeft: "10px" }}
-        >
-          {showHistory ? "Hide Leave History" : "Leave History"}
-        </button>
-      </form>
+          <div className="form-actions">
+            <button type="submit" className="apply-btn">Submit</button>
 
-      {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-      {success && <p style={{ color: "green" }}>{success}</p>}
+            {/* 🔥 TOGGLE BUTTON */}
+            <button
+              type="button"
+              className="history-toggle-btn"
+              onClick={() => setShowHistory(prev => !prev)}
+            >
+              {showHistory ? "Hide History" : "View History"}
+            </button>
+          </div>
+        </form>
+      </div>
+
+      {errorMessage && <p className="error-text">{errorMessage}</p>}
+      {success && <p className="success-text">{success}</p>}
 
       {/* 🔽 Leave History (TOGGLE) */}
       {showHistory && (
-        <>
-          <hr />
-          <h2>My Leave History</h2>
+        <div className="leave-history-section">
+          <hr className="divider" />
+          <h2 className="section-title">My Leave History</h2>
 
-          <table border="1" align="center" cellPadding="5">
-            <thead>
-              <tr>
-                <th>Leave Type</th>
-                <th>Days</th>
-                <th>Reason</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {history.length === 0 ? (
+          <div className="table-responsive">
+            <table className="leave-history-table">
+              <thead>
                 <tr>
-                  <td colSpan="4">No leave history found</td>
+                  <th>Leave Type</th>
+                  <th>Days</th>
+                  <th>Reason</th>
+                  <th>Status</th>
                 </tr>
-              ) : (
-                history.map((leave) => (
-                  <tr key={leave._id}>
-                    <td>{leave.leaveType?.name || "N/A"}</td>
-                    <td>{leave.leaves}</td>
-                    <td>{leave.reason}</td>
-                    <td>{leave.status}</td>
+              </thead>
+              <tbody>
+                {history.length === 0 ? (
+                  <tr>
+                    <td colSpan="4">No leave history found</td>
                   </tr>
-                ))
-              )}
-            </tbody>
-          </table>
-        </>
+                ) : (
+                  history.map((leave) => (
+                    <tr key={leave._id}>
+                      <td>{leave.leaveType?.name || "N/A"}</td>
+                      <td>{leave.leaves}</td>
+                      <td>{leave.reason}</td>
+                      <td>{leave.status}</td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
       )}
     </div>
   );

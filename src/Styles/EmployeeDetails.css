@@ -28,7 +28,7 @@
   z-index: 1;
   padding: 60px 40px 40px;
   text-align: center;
-  color:wheat;
+  color: wheat;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -231,28 +231,31 @@
 /* ===== Responsive (Small Mobile) ===== */
 @media (max-width: 360px) {
   .header-content {
-    padding: 40px 16px 25px;
+    padding: 35px 16px 20px;
   }
 
   .page-title {
-    font-size: 22px;
+    font-size: 20px;
+  }
+
+  .page-subtitle {
+    font-size: 12px;
   }
 
   .details-content {
-    padding: 0 10px 20px;
+    padding: 0 8px 20px;
   }
 
   .employee-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 10px;
   }
 
   .employee-card {
-    padding: 16px;
+    padding: 14px;
   }
 
   .emp-name {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .emp-email {
@@ -260,12 +263,35 @@
   }
 
   .card-header {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    /* Keep horizontal */
+    justify-content: space-between;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  .emp-id,
+  .emp-leave-badge {
+    padding: 4px 8px;
+    font-size: 10px;
   }
 
   .action-btn {
-    padding: 10px 12px;
+    padding: 10px;
     font-size: 12px;
+  }
+}
+
+/* Extra small screens (like 300px) */
+@media (max-width: 320px) {
+
+  .emp-id,
+  .emp-leave-badge {
+    padding: 3px 6px;
+    font-size: 9px;
+  }
+
+  .emp-name {
+    font-size: 14px;
   }
 }

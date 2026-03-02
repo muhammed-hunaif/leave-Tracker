@@ -293,15 +293,15 @@
 /* ===== Responsive (Small Mobile) ===== */
 @media (max-width: 360px) {
   .header-content {
-    padding: 40px 16px 25px;
+    padding: 35px 16px 20px;
   }
 
   .page-title {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .profile-content {
-    padding: 0 10px 20px;
+    padding: 0 8px 15px;
   }
 
   .profile-form {
@@ -313,7 +313,39 @@
   }
 
   .btn {
-    padding: 10px 12px;
+    padding: 10px;
+    font-size: 12px;
+  }
+}
+
+/* Extra small screens (like 300px) */
+@media (max-width: 320px) {
+  .header-content {
+    padding: 30px 12px 15px;
+  }
+
+  .page-title {
+    font-size: 18px;
+  }
+
+  .page-subtitle {
+    font-size: 11px;
+  }
+
+  .profile-form {
+    padding: 14px 10px;
+  }
+
+  .form-header h2 {
+    font-size: 15px;
+  }
+
+  .form-label {
+    font-size: 11px;
+  }
+
+  .form-input {
+    padding: 9px 10px;
     font-size: 12px;
   }
 }

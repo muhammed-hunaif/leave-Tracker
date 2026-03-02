@@ -90,7 +90,9 @@
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .loading-spinner p {
@@ -379,6 +381,7 @@
     opacity: 0;
     transform: translateY(-5px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -469,6 +472,58 @@
 
   .info-item span {
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 330px) {
+  .leave-view {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .header-section {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .header-section h1 {
+    font-size: 1.1rem;
+  }
+
+  .leave-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .leave-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .card-header {
+    padding: 1rem;
+  }
+
+  .info-grid {
+    padding: 1rem;
+  }
+
+  .info-item span {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .action-content {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 305px) {
+  .header-section h1 {
+    font-size: 1rem;
+  }
+
+  .status-badge {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
   }
 }
 

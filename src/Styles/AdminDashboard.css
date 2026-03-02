@@ -414,3 +414,42 @@
     font-size: 20px;
   }
 }
+
+/* Extra small screens (like 300px) */
+@media (max-width: 320px) {
+  .header-content {
+    padding: 30px 12px 15px;
+  }
+
+  .page-title {
+    font-size: 18px;
+  }
+
+  .page-subtitle {
+    font-size: 11px;
+  }
+
+  .hero-card {
+    padding: 12px;
+  }
+
+  .hero-value {
+    font-size: 24px;
+  }
+
+  .hero-label {
+    font-size: 10px;
+  }
+
+  .stat-card {
+    padding: 12px;
+  }
+
+  .stat-number {
+    font-size: 20px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+  }
+}

@@ -275,7 +275,9 @@
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .loading-state p {
@@ -489,5 +491,44 @@
   .days-badge {
     padding: 4px 8px;
     font-size: 9px;
+  }
+}
+
+/* Extra small screens (like 300px) */
+@media (max-width: 320px) {
+  .header-content {
+    padding: 30px 12px 15px;
+  }
+
+  .page-title {
+    font-size: 18px;
+  }
+
+  .page-subtitle {
+    font-size: 11px;
+  }
+
+  .timeline-container::before {
+    left: 16px;
+  }
+
+  .timeline-dot {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+    border-width: 2px;
+  }
+
+  .timeline-item {
+    gap: 10px;
+  }
+
+  .timeline-content {
+    padding: 10px 12px;
+  }
+
+  .reason-text {
+    font-size: 12px;
+    padding: 8px;
   }
 }

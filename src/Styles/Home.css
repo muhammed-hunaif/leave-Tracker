@@ -159,12 +159,23 @@
 /* Responsive adjustments */
 @media (max-width: 480px) {
   .home-card {
-    padding: 40px 24px;
+    padding: 35px 20px;
     border-radius: 24px;
   }
 
   .home-card h1 {
-    font-size: 26px;
+    font-size: 24px;
+  }
+
+  .home-subtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  .home-buttons button {
+    padding: 15px;
+    font-size: 15px;
+    border-radius: 12px;
   }
 }
 
@@ -243,6 +254,17 @@
     font-size: 26px;
   }
 
+  .home-subtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  .home-buttons button {
+    padding: 15px;
+    font-size: 15px;
+    border-radius: 12px;
+  }
+
   .blob-1 {
     width: 300px;
     height: 300px;
@@ -251,5 +273,58 @@
   .blob-2 {
     width: 200px;
     height: 200px;
+  }
+}
+
+@media (max-width: 360px) {
+  .home-container {
+    padding: 16px;
+  }
+
+  .home-card {
+    padding: 28px 16px;
+    border-radius: 20px;
+  }
+
+  .home-card h1 {
+    font-size: 22px;
+  }
+
+  .home-subtitle {
+    font-size: 13px;
+    margin-bottom: 25px;
+  }
+
+  .home-buttons {
+    gap: 12px;
+  }
+
+  .home-buttons button {
+    padding: 14px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  .home-card {
+    padding: 24px 14px;
+  }
+
+  .home-card h1 {
+    font-size: 20px;
+  }
+
+  .home-subtitle {
+    font-size: 12px;
+  }
+
+  .home-buttons button {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .blob-1 {
+    width: 250px;
+    height: 250px;
   }
 }

@@ -112,29 +112,96 @@
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-/* Status Dropdown Styling */
-.status-dropdown {
+/* Professional Custom Dropdown Styling */
+.custom-status-dropdown {
+  position: relative;
   flex: 1;
-  min-width: 130px;
+  min-width: 140px;
+}
+
+.custom-status-dropdown .dropdown-selected {
+  width: 100%;
   padding: 12px 14px;
-  border-radius: 12px;
+  background: #ffffff;
   border: 1.5px solid #e2e8f0;
-  background-color: #ffffff;
+  border-radius: 12px;
   font-size: 14px;
   font-weight: 600;
   color: #475569;
   cursor: pointer;
-  outline: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   transition: all 0.2s ease;
 }
 
-.status-dropdown:hover {
-  border-color: #cbd5e1;
-}
-
-.status-dropdown:focus {
+.custom-status-dropdown.is-open .dropdown-selected,
+.custom-status-dropdown:hover .dropdown-selected {
   border-color: #3b82f6;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.custom-status-dropdown .dropdown-caret {
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #94a3b8;
+  border-bottom: 2px solid #94a3b8;
+  transform: rotate(45deg);
+  transition: all 0.3s ease;
+  margin-top: -4px;
+}
+
+.custom-status-dropdown.is-open .dropdown-caret,
+.custom-status-dropdown:hover .dropdown-caret {
+  transform: rotate(-135deg);
+  margin-top: 4px;
+  border-color: #3b82f6;
+}
+
+.custom-status-dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  margin-top: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #f1f5f9;
+}
+
+.custom-status-dropdown.is-open .dropdown-menu,
+.custom-status-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.custom-status-dropdown .dropdown-item {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.custom-status-dropdown .dropdown-item:hover {
+  background: #f8fafc;
+  color: #2563eb;
+  padding-left: 20px;
+}
+
+.custom-status-dropdown .dropdown-item.selected {
+  background: #eff6ff;
+  color: #2563eb;
+  font-weight: 600;
 }
 
 /* ===== Grid Layout ===== */
@@ -361,7 +428,7 @@
   }
 
   .search-input-field,
-  .status-dropdown {
+  .custom-status-dropdown {
     flex: none;
     width: 100%;
     box-sizing: border-box;
@@ -479,61 +546,77 @@
 
   /* ✅ Fixed: was .header-content (wrong), now .leave-header-content (correct) */
   .leave-header-content {
-    padding: 36px 12px 24px;
+    padding: 30px 12px 20px;
   }
 
   .page-title {
-    font-size: 20px;
+    font-size: 19px;
   }
 
   .page-subtitle {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .leave-content {
-    padding: 0 10px 20px;
+    padding: 0 8px 15px;
   }
 
   .leave-card-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 10px;
   }
 
   .leave-card-box {
-    padding: 14px;
+    padding: 12px;
   }
 
   .emp-name-text {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .emp-email-text {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .card-top-row {
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 4px;
+  }
+
+  .id-tag,
+  .status-tag {
+    padding: 4px 8px;
+    font-size: 10px;
   }
 
   .card-view-btn {
-    padding: 10px 12px;
+    padding: 10px;
     font-size: 12px;
-    min-height: 44px;
+  }
+}
+
+/* Extra small screens (like 300px) */
+@media (max-width: 320px) {
+  .leave-header-content {
+    padding: 25px 10px 15px;
   }
 
-  .search-input-field {
-    font-size: 13px;
-    padding: 10px 12px;
+  .page-title {
+    font-size: 17px;
   }
 
-  .status-dropdown {
-    font-size: 13px;
-    padding: 10px 12px;
+  .search-input-field,
+  .custom-status-dropdown .dropdown-selected {
+    font-size: 12px;
+    padding: 9px 10px;
+  }
+
+  .pagination-controls {
+    padding: 10px 8px;
   }
 
   .pagination-btn {
-    font-size: 12px;
-    padding: 10px 12px;
+    padding: 8px 10px;
+    font-size: 11px;
   }
 }

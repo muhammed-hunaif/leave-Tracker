@@ -83,6 +83,10 @@ function ApplyLeave() {
     setSuccessMessage("");
   };
 
+  // 🔹 Custom Dropdown State
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const selectedType = leaveTypesList.find(t => t._id === leaveType);
+
   return (
     <div className="apply-leave-page">
       {successMessage && (
@@ -107,26 +111,40 @@ function ApplyLeave() {
         </div>
 
         <form className="leave-form" onSubmit={handleSubmit}>
-          {/* Leave Type */}
+          {/* Leave Type - Professional Hover Dropdown */}
           <div className="form-group">
             <label className="form-label">Leave Type</label>
-            <select
-              className="form-input"
-              value={leaveType}
-              onChange={(e) => setLeaveType(e.target.value)}
-              required
-              disabled={loadingTypes}
+            <div
+              className={`custom-leave-dropdown ${isDropdownOpen ? "is-open" : ""}`}
+              onMouseEnter={() => setIsDropdownOpen(true)}
+              onMouseLeave={() => setIsDropdownOpen(false)}
             >
-              <option value="">
-                {loadingTypes ? "Loading leave types..." : "Select leave type"}
-              </option>
+              <div className="dropdown-selected">
+                {selectedType ? selectedType.name : "Choose Leave Type"}
+                <span className="dropdown-caret"></span>
+              </div>
 
-              {leaveTypesList.map((type) => (
-                <option key={type._id} value={type._id}>
-                  {type.name}
-                </option>
-              ))}
-            </select>
+              <div className="dropdown-menu">
+                {loadingTypes ? (
+                  <div className="dropdown-item disabled">Loading types...</div>
+                ) : leaveTypesList.length === 0 ? (
+                  <div className="dropdown-item disabled">No types found</div>
+                ) : (
+                  leaveTypesList.map((type) => (
+                    <div
+                      key={type._id}
+                      className={`dropdown-item ${leaveType === type._id ? "selected" : ""}`}
+                      onClick={() => {
+                        setLeaveType(type._id);
+                        setIsDropdownOpen(false);
+                      }}
+                    >
+                      {type.name}
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
           </div>
 
           {/* Number of Leaves */}

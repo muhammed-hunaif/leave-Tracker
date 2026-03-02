@@ -22,6 +22,7 @@ function LeaveDetails() {
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
     if (!user?.token) return;
@@ -89,19 +90,32 @@ function LeaveDetails() {
               className="search-input-field"
             />
 
-            <select
-              value={statusFilter}
-              onChange={(e) => {
-                setCurrentPage(1); // reset page
-                setStatusFilter(e.target.value);
-              }}
-              className="status-dropdown"
+            <div
+              className={`custom-status-dropdown ${isDropdownOpen ? "is-open" : ""}`}
+              onMouseEnter={() => setIsDropdownOpen(true)}
+              onMouseLeave={() => setIsDropdownOpen(false)}
             >
-              <option value="all">All Status</option>
-              <option value="pending">Pending</option>
-              <option value="approved">Approved</option>
-              <option value="rejected">Rejected</option>
-            </select>
+              <div className="dropdown-selected">
+                {statusFilter === "all" ? "All Status" : statusFilter.charAt(0).toUpperCase() + statusFilter.slice(1)}
+                <span className="dropdown-caret"></span>
+              </div>
+
+              <div className="dropdown-menu">
+                {["all", "pending", "approved", "rejected"].map((status) => (
+                  <div
+                    key={status}
+                    className={`dropdown-item ${statusFilter === status ? "selected" : ""}`}
+                    onClick={() => {
+                      setStatusFilter(status);
+                      setCurrentPage(1);
+                      setIsDropdownOpen(false);
+                    }}
+                  >
+                    {status === "all" ? "All Status" : status.charAt(0).toUpperCase() + status.slice(1)}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 

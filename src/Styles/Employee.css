@@ -32,22 +32,102 @@
   color: #333;
 }
 
-/* ===== Dropdown ===== */
-.form-input {
+/* Professional Custom Dropdown Styling */
+.custom-leave-dropdown {
+  position: relative;
   width: 100%;
-  padding: 11px;
-  font-size: 14px;
-  border-radius: 8px;
-  border: 1px solid #cbd5e1;
-  outline: none;
-  background-color: #fff;
-  transition: all 0.2s ease;
   margin-bottom: 15px;
 }
 
-.form-input:focus {
+.custom-leave-dropdown .dropdown-selected {
+  width: 100%;
+  padding: 12px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.custom-leave-dropdown.is-open .dropdown-selected,
+.custom-leave-dropdown:hover .dropdown-selected {
   border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.custom-leave-dropdown .dropdown-caret {
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #94a3b8;
+  border-bottom: 2px solid #94a3b8;
+  transform: rotate(45deg);
+  transition: all 0.3s ease;
+  margin-top: -4px;
+}
+
+.custom-leave-dropdown.is-open .dropdown-caret,
+.custom-leave-dropdown:hover .dropdown-caret {
+  transform: rotate(-135deg);
+  margin-top: 4px;
+  border-color: #3b82f6;
+}
+
+.custom-leave-dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  margin-top: 6px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #f1f5f9;
+}
+
+.custom-leave-dropdown.is-open .dropdown-menu,
+.custom-leave-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.custom-leave-dropdown .dropdown-item {
+  padding: 10px 14px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.custom-leave-dropdown .dropdown-item:hover {
+  background: #f8fafc;
+  color: #2563eb;
+  padding-left: 18px;
+}
+
+.custom-leave-dropdown .dropdown-item.selected {
+  background: #eff6ff;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.custom-leave-dropdown .dropdown-item.disabled {
+  color: #94a3b8;
+  cursor: not-allowed;
+  font-style: italic;
 }
 
 /* ===== Input Fields ===== */
@@ -110,18 +190,137 @@
   text-align: center;
 }
 
+/* ===== Welcome Title ===== */
+.welcome-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 30px;
+}
+
+/* ===== Section Titles ===== */
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 20px;
+}
+
+/* ===== Form Groups & Actions ===== */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.form-actions button {
+  flex: 1;
+}
+
+/* History Toggle Button */
+.history-toggle-btn {
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1.5px solid #cbd5e1;
+  background: white;
+  color: #64748b;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.history-toggle-btn:hover {
+  background: #f8fafc;
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+/* ===== Table Responsive ===== */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin-top: 15px;
+}
+
+.leave-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 450px;
+  /* Force scroll on very small screens */
+  background: white;
+}
+
+.leave-history-table th,
+.leave-history-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 14px;
+}
+
+.leave-history-table th {
+  background: #f8fafc;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .employee-container {
-    margin: 20px;
-    padding: 20px;
+    margin: 20px auto;
+    padding: 24px;
+    width: 90%;
   }
 }
 
-@media (max-width: 400px) {
-  .employee-container h2 {
-    font-size: 20px;
+@media (max-width: 480px) {
+  .welcome-title {
+    font-size: 24px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .history-toggle-btn {
+    width: 100%;
   }
 }
 
+/* Extra small screens (like 300px) */
+@media (max-width: 310px) {
+  .employee-container {
+    padding: 14px 10px;
+    margin: 10px 5px;
+    border-radius: 10px;
+  }
 
+  .welcome-title {
+    font-size: 19px;
+  }
+
+  .section-title {
+    font-size: 17px;
+  }
+
+  .form-input,
+  .apply-btn,
+  .history-toggle-btn {
+    padding: 9px;
+    font-size: 12px;
+  }
+
+  .leave-history-table {
+    min-width: 400px;
+    /* Slight reduction */
+  }
+}

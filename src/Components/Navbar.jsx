@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "../Styles/Navbar.css";
 import Alert from "./Alert";
 
 function Navbar() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false); // State for mobile menu
   const [successMessage, setSuccessMessage] = useState("");
 
@@ -23,6 +24,9 @@ function Navbar() {
     }, 1500);
   };
 
+  // Hide back button on the main admin dashboard page
+  const showBack = location.pathname !== "/admin" && location.pathname !== "/admin/";
+
   return (
     <div className="admin-navbar">
       {successMessage && (
@@ -32,9 +36,12 @@ function Navbar() {
           onClose={() => setSuccessMessage("")}
         />
       )}
-      <button className="nav-back-btn" onClick={() => navigate(-1)}>
-        <span>&larr;</span> Back
-      </button>
+
+      {showBack && (
+        <button type="button" className="nav-back-btn" onClick={() => window.history.back()}>
+          <span>&larr;</span> Back
+        </button>
+      )}
       <div className="logo">Admin Dashboard</div>
 
       {/* Hamburger Icon for Mobile */}

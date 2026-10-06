@@ -1,96 +1,16 @@
-# Leave Tracker
+# React + Vite
 
-A modern leave management system built with React, Vite, and Node.js for managing employee leave requests, approvals, and records.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## GitHub Repository
+Currently, two official plugins are available:
 
-- GitHub: https://github.com/muhammed-hunaif/leave-Tracker
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Overview
+## React Compiler
 
-Leave Tracker is a full-stack web application that helps organizations manage employee leave efficiently. It supports separate admin and employee roles, enabling employees to submit leave requests and admins to review, approve, or reject them.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Features
+## Expanding the ESLint configuration
 
-- Employee authentication and registration
-- Admin dashboard for managing employees and leave requests
-- Employee dashboard for applying and tracking leave
-- Leave history with status tracking
-- Leave approval and rejection workflow
-- Employee profile and management views
-- Responsive UI for desktop and tablet use
-
-## Tech Stack
-
-- Frontend: React, Vite, React Router
-- State Management: Redux Toolkit
-- Backend: Node.js, Express
-- Database: MongoDB with Mongoose
-- Authentication: JWT and bcryptjs
-- HTTP Client: Axios
-
-## Project Structure
-
-```bash
-leave-Tracker/
-├── src/
-│   ├── Components/
-│   ├── Layouts/
-│   ├── Pages/
-│   ├── api/
-│   ├── context/
-│   ├── App.jsx
-│   └── main.jsx
-├── package.json
-├── vite.config.js
-├── README.md
-└── .gitignore
-```
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v18 or later recommended)
-- npm or yarn
-- MongoDB instance or MongoDB Atlas connection
-
-### Installation
-
-1. Clone the repository
-   ```bash
-   git clone https://github.com/muhammed-hunaif/leave-Tracker.git
-   cd leave-Tracker
-   ```
-
-2. Install dependencies
-   ```bash
-   npm install
-   ```
-
-3. Configure environment variables
-   Create a `.env` file in the root directory and add your MongoDB connection string and JWT secret if required.
-
-4. Run the application
-   ```bash
-   npm run dev
-   ```
-
-5. Build for production
-   ```bash
-   npm run build
-   ```
-
-## Usage
-
-- Admin users can create employee profiles, view leave requests, and approve or reject applications.
-- Employees can sign up or log in, apply for leave, and track the status of their requests.
-
-## License
-
-This project is currently unlicensed unless otherwise specified by the repository owner.
-
-## Contact
-
-For questions or contributions, visit the GitHub repository:
-https://github.com/muhammed-hunaif/leave-Tracker
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
